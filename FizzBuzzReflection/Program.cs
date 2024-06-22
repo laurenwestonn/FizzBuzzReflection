@@ -26,24 +26,22 @@ namespace FizzBuzzReflection
 
             foreach (var value in range)
             {
-                if (value % 3 == 0)
+                if (value % 15 == 0)
+                {
+                    result.Add("FizzBuzz");
+                } 
+                else if (value % 3 == 0)
                 {
                     result.Add("Fizz");
                 }
-
-
                 else if (value % 5 == 0)
                 {
                     result.Add("Buzz");
                 }
-
-
                 else
                 {
                     result.Add(value.ToString());
                 }
-
-
             }
 
             Debug.WriteLine(string.Join(" ", result));

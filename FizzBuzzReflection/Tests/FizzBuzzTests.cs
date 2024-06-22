@@ -15,22 +15,22 @@ namespace FizzBuzzReflection.Tests
         }
 
         [Test]
-        public void Given_DivisibleByThree_Then_ReplaceWithFizz()
+        public void Given_DivisibleByThree_And_NotByFive_Then_ReplaceWithFizz()
         {
             var result = FizzBuzz.OutputFizzBuzz();
 
-            var divisibleByThreeOutputs = result.Where((value, i) => (i + 1) % 3 == 0);
+            var divisibleByThreeOutputs = result.Where((value, i) => ((i+1) % 3 == 0) && ((i+1) % 5 != 0));
 
             var areAllFizz = divisibleByThreeOutputs.All(x => x == "Fizz");
             Assert.That(areAllFizz, Is.True);
         }
 
         [Test]
-        public void Given_DivisibleByFive_Then_ReplaceWithBuzz()
+        public void Given_DivisibleByFive_And_NotByThree_Then_ReplaceWithBuzz()
         {
             var result = FizzBuzz.OutputFizzBuzz();
 
-            var divisibleByFiveOutputs = result.Where((value, i) => (i + 1) % 5 == 0);
+            var divisibleByFiveOutputs = result.Where((value, i) => ((i+1) % 5 == 0) && ((i+1) % 3 != 0));
 
             var areAllFizz = divisibleByFiveOutputs.All(x => x == "Buzz");
             Assert.That(areAllFizz, Is.True);
