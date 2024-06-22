@@ -46,5 +46,19 @@ namespace FizzBuzzReflection.Tests
             var areAllFizz = divisibleByThreeOrFiveOutputs.All(x => x == "FizzBuzz");
             Assert.That(areAllFizz, Is.True);
         }
+
+        [Test]
+        public void Given_NotDivisibleByThreeOrFive_Then_RemainsANumber()
+        {
+            var result = FizzBuzz.OutputFizzBuzz();
+
+            for (int i = 1; i <= result.Count; i++)
+            {
+                if (i % 3 != 0 && i % 5 != 0)
+                {
+                    Assert.That(result[i - 1], Is.EqualTo(i.ToString()));
+                }
+            }
+        }
     }
 }
