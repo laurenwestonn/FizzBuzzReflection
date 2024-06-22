@@ -35,5 +35,16 @@ namespace FizzBuzzReflection.Tests
             var areAllFizz = divisibleByFiveOutputs.All(x => x == "Buzz");
             Assert.That(areAllFizz, Is.True);
         }
+
+        [Test]
+        public void Given_DivisibleByThreeOrFive_Then_ReplaceWithFizzBuzz()
+        {
+            var result = FizzBuzz.OutputFizzBuzz();
+
+            var divisibleByThreeOrFiveOutputs = result.Where((value, i) => (i + 1) % 15 == 0);
+
+            var areAllFizz = divisibleByThreeOrFiveOutputs.All(x => x == "FizzBuzz");
+            Assert.That(areAllFizz, Is.True);
+        }
     }
 }
