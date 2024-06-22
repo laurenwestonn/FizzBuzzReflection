@@ -30,24 +30,23 @@ namespace FizzBuzzReflection
 
             foreach (var value in range)
             {
-                if (value % 15 == 0 && mapper.ContainsKey(15))
+                var translatedValue = "";
+                foreach (var divisibleFactor in mapper.Keys)
                 {
-                    var method = typeof(FizzBuzzOutputs).GetMethod(mapper[15]);
-                    string translation = method.Invoke(null, null) as string;
-                    result.Add(translation);
-                } 
-                else if (value % 3 == 0)
-                {
-                    result.Add(FizzBuzzOutputs.Fizz());
+                    if (value % divisibleFactor == 0)
+                    {
+                        var method = typeof(FizzBuzzOutputs).GetMethod(mapper[divisibleFactor]);
+                        translatedValue = method.Invoke(null, null) as string;
+                        break;
+                    }
                 }
-                else if (value % 5 == 0)
+                
+                if (translatedValue == "")
                 {
-                    result.Add(FizzBuzzOutputs.Buzz());
+                    translatedValue = value.ToString();
                 }
-                else
-                {
-                    result.Add(value.ToString());
-                }
+
+                result.Add(translatedValue);
             }
 
             Debug.WriteLine(string.Join(" ", result));
