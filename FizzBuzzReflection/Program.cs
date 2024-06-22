@@ -8,13 +8,20 @@ namespace FizzBuzzReflection
     {
         static void Main(string[] args)
         {
-            FizzBuzz.OutputFizzBuzz();
+            var mapper = new Dictionary<int, string>()
+            {
+                { 3, "Fizz" },
+                { 5, "Buzz" },
+                { 15, "FizzBuzz" }
+            };
+
+            FizzBuzz.OutputFizzBuzz(mapper);
         }
     }
 
     public static class FizzBuzz
     {
-        public static List<string> OutputFizzBuzz()
+        public static List<string> OutputFizzBuzz(Dictionary<int, string> mapper)
         {
             int numberToFizzBuzzUntil = 100;
             List<int> range = Enumerable.Range(1, numberToFizzBuzzUntil).ToList();
@@ -23,9 +30,11 @@ namespace FizzBuzzReflection
 
             foreach (var value in range)
             {
-                if (value % 15 == 0)
+                if (value % 15 == 0 && mapper.ContainsKey(15))
                 {
-                    result.Add(FizzBuzzOutputs.FizzBuzz());
+                    var method = typeof(FizzBuzzOutputs).GetMethod(mapper[15]);
+                    string translation = method.Invoke(null, null) as string;
+                    result.Add(translation);
                 } 
                 else if (value % 3 == 0)
                 {
