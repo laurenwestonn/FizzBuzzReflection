@@ -25,15 +25,15 @@ namespace FizzBuzzReflection
             {
                 if (value % 15 == 0)
                 {
-                    result.Add("FizzBuzz");
+                    result.Add(FizzBuzzOutputs.FizzBuzz());
                 } 
                 else if (value % 3 == 0)
                 {
-                    result.Add("Fizz");
+                    result.Add(FizzBuzzOutputs.Fizz());
                 }
                 else if (value % 5 == 0)
                 {
-                    result.Add("Buzz");
+                    result.Add(FizzBuzzOutputs.Buzz());
                 }
                 else
                 {
