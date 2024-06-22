@@ -19,10 +19,9 @@ namespace FizzBuzzReflection
     {
         public static List<string> OutputFizzBuzz()
         {
-            return new List<string>
-            {
-
-            };
+            int numberToFizzBuzzUntil = 100;
+            List<string> range = Enumerable.Range(1, numberToFizzBuzzUntil).Select(x => x.ToString()).ToList();
+            return range;
         }
     }
 }
