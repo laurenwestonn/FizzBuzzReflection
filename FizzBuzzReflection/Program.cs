@@ -15,16 +15,17 @@ namespace FizzBuzzReflection
                 { 5, "Buzz" }
             };
 
-            FizzBuzz.OutputFizzBuzz(mapper);
+            var fizzBuzzOutputs = new FizzBuzzOutputs();
+
+            Translator.OutputTranslator(mapper, fizzBuzzOutputs, 100);
         }
     }
 
-    public static class FizzBuzz
+    public static class Translator
     {
-        public static List<string> OutputFizzBuzz(Dictionary<int, string> mapper)
+        public static List<string> OutputTranslator(Dictionary<int, string> mapper, IOutputs outputter, int until)
         {
-            int numberToFizzBuzzUntil = 100;
-            List<int> range = Enumerable.Range(1, numberToFizzBuzzUntil).ToList();
+            List<int> range = Enumerable.Range(1, until).ToList();
 
             List<string> result = new List<string>();
 
@@ -35,8 +36,8 @@ namespace FizzBuzzReflection
                 {
                     if (value % divisibleFactor == 0)
                     {
-                        var method = typeof(FizzBuzzOutputs).GetMethod(mapper[divisibleFactor]);
-                        translatedValue = method.Invoke(null, null) as string;
+                        var method = typeof(IOutputs).GetMethod(mapper[divisibleFactor]);
+                        translatedValue = method.Invoke(outputter, null) as string;
                         break;
                     }
                 }

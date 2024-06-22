@@ -1,16 +1,16 @@
 ﻿namespace FizzBuzzReflection
 {
-    internal static class FizzBuzzOutputs
+    internal class FizzBuzzOutputs : IOutputs
     {
-        public static string Fizz()
+        public string Fizz()
         {
             return "Fizz";
         }
-        public static string Buzz()
+        public string Buzz()
         {
             return "Buzz";
         }
-        public static string FizzBuzz()
+        public string FizzBuzz()
         {
             return "FizzBuzz";
         }
