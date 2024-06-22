@@ -11,7 +11,7 @@ namespace FizzBuzzReflection
     {
         static void Main(string[] args)
         {
-            Debug.WriteLine("FizzBuzz!");
+            FizzBuzz.OutputFizzBuzz();
         }
     }
 
@@ -20,8 +20,34 @@ namespace FizzBuzzReflection
         public static List<string> OutputFizzBuzz()
         {
             int numberToFizzBuzzUntil = 100;
-            List<string> range = Enumerable.Range(1, numberToFizzBuzzUntil).Select(x => "Fizz").ToList();
-            return range;
+            List<int> range = Enumerable.Range(1, numberToFizzBuzzUntil).ToList();
+
+            List<string> result = new List<string>();
+
+            foreach (var value in range)
+            {
+                if (value % 3 == 0)
+                {
+                    result.Add("Fizz");
+                }
+
+
+                else if (value % 5 == 0)
+                {
+                    result.Add("Buzz");
+                }
+
+
+                else
+                {
+                    result.Add(value.ToString());
+                }
+
+
+            }
+
+            Debug.WriteLine(string.Join(" ", result));
+            return result;
         }
     }
 }
