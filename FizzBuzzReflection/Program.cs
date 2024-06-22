@@ -20,7 +20,7 @@ namespace FizzBuzzReflection
         public static List<string> OutputFizzBuzz()
         {
             int numberToFizzBuzzUntil = 100;
-            List<string> range = Enumerable.Range(1, numberToFizzBuzzUntil).Select(x => x.ToString()).ToList();
+            List<string> range = Enumerable.Range(1, numberToFizzBuzzUntil).Select(x => "Fizz").ToList();
             return range;
         }
     }
