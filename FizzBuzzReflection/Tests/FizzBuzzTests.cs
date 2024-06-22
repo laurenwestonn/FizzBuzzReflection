@@ -10,9 +10,9 @@ namespace FizzBuzzReflection.Tests
 
         public Dictionary<int, string> _exampleTranslations = new Dictionary<int, string>()
         {
+            { 15, "FizzBuzz" },
             { 3, "Fizz" },
             { 5, "Buzz" },
-            { 15, "FizzBuzz" }
         };
 
         [Test]
