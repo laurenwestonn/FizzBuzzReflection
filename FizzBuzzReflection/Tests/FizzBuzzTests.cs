@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Linq;
 
 namespace FizzBuzzReflection.Tests
 {
@@ -6,9 +7,14 @@ namespace FizzBuzzReflection.Tests
     internal class FizzBuzzTests
     {
         [Test]
-        public void TestTest()
+        public void Given_DivisibleByThree_Then_ReplaceWithFizz()
         {
-            Assert.That(2 + 2, Is.EqualTo(5));
+            var result = FizzBuzz.OutputFizzBuzz();
+
+            var divisibleByThreeOutputs = result.Where((value, i) => (i + 1) % 3 == 0);
+
+            var areAllFizz = divisibleByThreeOutputs.All(x => x == "Fizz");
+            Assert.That(areAllFizz, Is.True);
         }
     }
 }

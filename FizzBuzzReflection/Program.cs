@@ -14,4 +14,15 @@ namespace FizzBuzzReflection
             Debug.WriteLine("FizzBuzz!");
         }
     }
+
+    public static class FizzBuzz
+    {
+        public static List<string> OutputFizzBuzz()
+        {
+            return new List<string>
+            {
+
+            };
+        }
+    }
 }
