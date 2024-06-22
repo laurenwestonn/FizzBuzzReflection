@@ -13,6 +13,7 @@ namespace FizzBuzzReflection.Tests
 
             Assert.That(result.Count(), Is.EqualTo(100));
         }
+
         [Test]
         public void Given_DivisibleByThree_Then_ReplaceWithFizz()
         {
@@ -21,6 +22,17 @@ namespace FizzBuzzReflection.Tests
             var divisibleByThreeOutputs = result.Where((value, i) => (i + 1) % 3 == 0);
 
             var areAllFizz = divisibleByThreeOutputs.All(x => x == "Fizz");
+            Assert.That(areAllFizz, Is.True);
+        }
+
+        [Test]
+        public void Given_DivisibleByFive_Then_ReplaceWithBuzz()
+        {
+            var result = FizzBuzz.OutputFizzBuzz();
+
+            var divisibleByFiveOutputs = result.Where((value, i) => (i + 1) % 5 == 0);
+
+            var areAllFizz = divisibleByFiveOutputs.All(x => x == "Buzz");
             Assert.That(areAllFizz, Is.True);
         }
     }
