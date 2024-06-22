@@ -7,6 +7,13 @@ namespace FizzBuzzReflection.Tests
     internal class FizzBuzzTests
     {
         [Test]
+        public void Given_FizzBuzz_Then_ResultHasAHunderedOutputs()
+        {
+            var result = FizzBuzz.OutputFizzBuzz();
+
+            Assert.That(result.Count(), Is.EqualTo(100));
+        }
+        [Test]
         public void Given_DivisibleByThree_Then_ReplaceWithFizz()
         {
             var result = FizzBuzz.OutputFizzBuzz();
